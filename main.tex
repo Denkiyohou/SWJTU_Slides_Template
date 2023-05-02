@@ -1,0 +1,204 @@
+\documentclass{beamer}
+\usepackage{swjtu}
+\usepackage[style=ieee]{biblatex}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\addbibresource{bibliography.bib}
+
+\title{My Presentation}
+\subtitle{An Unofficial SWJTU Slides Template}
+\author{Your Name}
+\institute{Southwest Jiaotong University}
+\date{\today}
+
+\begin{document}
+%% Title page
+%% Remove '[plain]' if you need a footline
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+
+%% TOC page
+{
+\begin{frame}
+    \frametitle{Tabel of Contents / 概览}
+    \tableofcontents
+\end{frame}
+}
+
+
+%% Section One
+\section{Basic Pages}
+
+%% Basic pages
+\begin{frame}{A typical slide}
+    \begin{itemize}
+        \item This is a typical slide
+        \item 这是一张普通的幻灯片
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{A top aligned slide}
+    \vspace{20pt}
+    \begin{itemize}
+        \item This is a top aligned slide
+        \item 这是一张顶部对齐的幻灯片
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{itemize}
+        \item This is a slide with plain style
+        \item 这是一张没有标题栏和底部栏的幻灯片
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Style and References}
+    \begin{itemize}
+        \item Click \textcolor{href}{\href{https://www.swjtu.edu.cn/}{here}} to visit SWJTU offical website
+        \item Use styling commends to stylize your text: \alert{alert}, \textbf{bold}, \textit{italics}, \underline{underline}, \dots
+        \item Insert mathematical expressions:
+        \begin{equation*}
+            e^{i\pi} + 1 = 0.
+        \end{equation*}
+        \item Footnote\footnotemark
+        \footnotetext[1]{This is a test footnote}
+        \item Bibliography \cite{knuth}
+    \end{itemize}
+\end{frame}
+
+%% Section Two
+\section{Block Pages}
+
+%% Block pages
+\begin{frame}{Blocks}
+    \begin{block}{Block}
+        This a block / 这是一个方块
+    \end{block}
+    % Delet '\pause' to cancel multipage layout
+    % 删除'\pause'以取消多页排列
+    \pause
+    \begin{alertblock}{Alert block}
+        This is an alert block / \textcolor{alert}{这是一个警示方块}.
+    \end{alertblock}
+    \pause
+    \begin{exampleblock}{Example block}
+        This is an example block / \textcolor{example}{这是一个示例方块}.
+    \end{exampleblock}
+\end{frame}
+
+%% Section Three
+\section{Lists and Tables}
+
+%% Lists and Tables
+\begin{frame}{Lists}
+    \begin{columns}[t, onlytextwidth]
+        \column{0.5\textwidth}
+            Items:
+            \begin{itemize}
+                \item Item 1
+                \begin{itemize}
+                    \item item 1
+                    \item item 2
+                \end{itemize}
+                \item Item 2
+                \item Item 3
+            \end{itemize}
+        
+        \column{0.5\textwidth}
+            Enumerations:
+            \begin{enumerate}
+                \item First
+                \begin{enumerate}
+                    \item first
+                    \item second
+                \end{enumerate}
+                \item Second
+                \item Third
+            \end{enumerate}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Table}
+    \begin{table}
+        \centering
+        \begin{tabular}{rccc}
+             & Column 1 & Column 2 & Column 3 \\\hline
+            Row 1 & entry11 & entry12 & entry31 \\
+            Row 2 & entry21 & entry22 & entry32 \\
+            Row 3 & entry31 & entry32 & entry33 \\
+        \end{tabular}
+        \caption{Table caption.}
+        \label{table demo}
+    \end{table}
+\end{frame}
+
+
+%% Section Four
+\section{Figure and Code}
+
+%% Figure
+\begin{frame}{Figure}
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.15]{src/logo_name_blue.png}
+    \caption{Figure caption.}
+    \label{fig:fig demo}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Figures}
+    \begin{columns}
+        \column{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[scale = 0.08]{src/logo_name_blue.png}
+                \caption{Figure caption.}
+                \label{fig:dual fig demo 1}
+            \end{figure}
+            
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.08]{src/logo_name_blue.png}
+            \caption{Figure caption.}
+            \label{fig:dual fig demo 2}
+        \end{figure}
+\end{columns}
+\end{frame}
+
+%% Code
+\begin{frame}[fragile]{Code}
+\begin{lstlisting}[language=C++]
+// Code Block
+#include<iostream>
+
+int main(int argc char* argv[])
+{
+    std::cout<<"Hello SWJTU!";
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+
+%% Final page
+\begin{frame}[plain]
+    \begin{picture}(0,0)
+        \put(-22, -165){\includegraphics[width=1.01\paperwidth]{src/final_page_bg.png}}
+    \end{picture}
+    %% Adjust the position of text here
+    %% 在下一行调整文本的位置
+    \put(60,-30){
+        		\begin{minipage}{200pt}
+        			\centering\usebeamerfont{acknowledgement}\usebeamercolor[fg]{acknowledgement}Thank You!
+        		\end{minipage}
+        	}
+\end{frame}
+
+%% Bibliography
+\appendix
+\begin{frame}[allowframebreaks]{References}
+    \printbibliography
+\end{frame}
+\end{document}

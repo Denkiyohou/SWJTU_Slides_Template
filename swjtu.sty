@@ -1,0 +1,218 @@
+
+% ==============================================================================
+%% Packages
+% ==============================================================================
+\RequirePackage{tikz}
+\RequirePackage{xeCJK}
+\RequirePackage{xcolor}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{verbatim}
+\RequirePackage{listings}
+
+% ==============================================================================
+%% Colors
+% ==============================================================================
+%% Define colors
+\definecolor{main}{RGB}{49, 46, 100}
+\definecolor{background}{RGB}{239, 239, 239}
+\definecolor{text}{RGB}{64,64,64}
+\definecolor{alert}{RGB}{194, 31, 48}
+\definecolor{example}{RGB}{34, 62, 54}
+
+\definecolor{codecomment}{RGB}{36, 128, 103}
+\definecolor{codekeyword}{RGB}{238, 63, 77}
+\definecolor{codestring}{RGB}{19, 72, 87}
+
+\definecolor{href}{RGB}{107, 164, 184}
+
+%% Set colors
+\setbeamercolor{titlelike}{fg=background}
+\setbeamercolor{frametitle}{parent={titlelike}}
+\setbeamercolor{head}{bg=main}
+\setbeamercolor{author}{fg=text}
+\setbeamercolor{institute}{fg=text}
+\setbeamercolor{date}{fg=text}
+\setbeamercolor{acknowledgement}{parent={titlelike}}
+
+\setbeamercolor{normal text}{fg=text, bg=background}
+\setbeamercolor{alerted text}{fg=alert}
+\setbeamercolor{example text}{fg=example}
+
+\setbeamercolor{footline}{fg=background, bg=main}
+
+\setbeamercolor{block title}{bg=main!80!background, fg=background}
+\setbeamercolor{block body}{bg=main!10!background, fg=text}
+
+\setbeamercolor{block title alerted}{bg=alert, fg=background}
+\setbeamercolor{block body alerted}{bg=alert!10!background, fg=main}
+
+\setbeamercolor{block title example}{bg=example, fg=background}
+\setbeamercolor{block body example}{bg=example!10!background, fg=main}
+
+\setbeamercolor{itemize item}{fg=main}
+\setbeamercolor{itemize subitem}{fg=main}
+
+\setbeamercolor{enumerate item}{fg=main!70!black}
+\setbeamercolor{enumerate subitem}{fg=main!70!black}
+
+\setbeamercolor{description item}{fg=main!70!black}
+\setbeamercolor{description subitem}{fg=main!70!black}
+
+\setbeamercolor{caption name}{fg=text}
+
+\setbeamercolor{section in toc}{fg=main}
+\setbeamercolor{subsection in toc}{fg=main}
+\setbeamercolor{section number projected}{bg=main}
+\setbeamercolor{subsection number projected}{bg=main}
+
+\setbeamercolor{bibliography item}{fg=main}
+\setbeamercolor{bibliography entry author}{fg=main!70!black}
+\setbeamercolor{bibliography entry title}{fg=main}
+\setbeamercolor{bibliography entry location}{fg=main}
+\setbeamercolor{bibliography entry note}{fg=main}
+
+
+% ==============================================================================
+%% Fonts
+% ==============================================================================
+%% Set fonts
+\setbeamerfont{title}{size=\huge, shape=\scshape\bfseries}
+\setbeamerfont{subtitle}{size=\Large, shape=\scshape, parent=structure}
+\setbeamerfont{author}{size=\Large, shape=\scshape\bfseries}
+\setbeamerfont{institute}{size=\large, shape=\scshape\bfseries}
+\setbeamerfont{date}{size=\large, shape=\scshape\bfseries}
+\setbeamerfont{acknowledgement}{size=\Huge, shape=\scshape\bfseries}
+
+\setbeamerfont{sectiontitle}{size=\huge, series=\scshape\bfseries}
+\setbeamerfont{frametitle}{size=\Large, shape=\scshape}
+\setbeamerfont{normal text}{family=\rmfamily}
+
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{footnote}{size=\tiny}
+
+\setbeamerfont{caption name}{shape=\bfseries}
+
+\setbeamerfont{bibliography item}{size=\small}
+\setbeamerfont{bibliography entry author}{size=\small}
+\setbeamerfont{bibliography entry title}{size=\small, series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\small, shape=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\small, shape=\normalfont}
+
+
+% ==============================================================================
+%% Entities
+% ==============================================================================
+%% Set blocks
+\setbeamertemplate{blocks}[rounded]
+
+%% Set points
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}{\ensuremath{\circ}}
+
+%% Set table of contents
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{subsection in toc}[square]
+
+%% Set code block style
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codecomment},
+    keywordstyle=\color{codekeyword},
+    stringstyle=\color{codestring},
+    numberstyle=\tiny\color{main},
+    basicstyle=\ttfamily\scriptsize,
+    numbersep=5pt,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+}
+\lstset{style=mystyle}
+
+
+% ==============================================================================
+%% General Layout
+% ==============================================================================
+%% Title Page
+\setbeamertemplate{title page}{
+    \begin{picture}(0,0)
+		\put(-30,-30){\includegraphics[width=1.01\paperwidth]{src/title_bg.png}}
+		\put(-15,10){
+			\begin{minipage}{300pt}
+				\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+				\vspace{10pt}
+				\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+			\end{minipage}
+		}
+		\put(-15,-80){
+            \begin{minipage}{200pt}
+                \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
+                \vspace{10pt}
+
+                \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute
+                \vspace{10pt}
+                
+                \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
+            \end{minipage}
+		}
+	\end{picture}
+}
+
+%% Section page
+\AtBeginSection[]{
+    \begin{frame}[plain]
+        \begin{picture}(0,0)
+        	\put(-22,-30){\includegraphics[width=1.01\paperwidth]{src/title_bg.png}}
+        	\put(-15,10){
+        		\begin{minipage}{300pt}
+        			\usebeamerfont{title}\usebeamercolor[fg]{title}\insertsectionhead\par%
+        		\end{minipage}
+        	}
+        \end{picture}
+  \end{frame}
+}
+
+%% Headline
+\setbeamertemplate{headline}{
+    % If not the title page
+    \ifnum\value{framenumber}>0
+    \begin{beamercolorbox}[wd=\paperwidth, ht=30pt, center]{head}
+        \vspace{3.2pt}\hspace{260pt}\includegraphics[width=80pt]{src/logo_white.png}
+    \end{beamercolorbox}
+    \fi
+}
+
+%% Frame title
+\setbeamertemplate{frametitle}{
+    % If not the title page
+    \ifnum\value{framenumber}>0
+        \vspace{5pt}\hspace{-15pt}\usebeamerfont{frametitle}\usebeamercolor{frametitle}\insertframetitle
+    \fi
+}
+
+%% Footline
+\setbeamertemplate{footline}
+{
+    \leavevmode
+    \hbox{
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{footline}
+      \usebeamerfont{footline}\insertshortauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{footline}
+      \usebeamerfont{footline}\insertshortsubtitle\hspace*{3em}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+    \end{beamercolorbox}}
+    \vskip0pt
+}
+
+%% Margin
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm}
+\setlength{\leftmargini}{0.75cm}
+
+
+
+
+
+
+
