@@ -7,22 +7,22 @@
 这是为西南交通大学师生制作的一个基于 $\LaTeX$ 的非官方beamer幻灯片模板。
 
 ## 文件结构
-SWJTU_Slides_Template
-├─ .git
-├─ LICENSE
-├─ README.md
-├─ bibliography.bib
-├─ main.pdf
-├─ main.tex
-├─ src
-│    ├─ final_page_bg.png
-│    ├─ logo_name_blue.png
-│    ├─ logo_white.png
-│    └─ title_bg.png
-└─ swjtu.sty
+SWJTU_Slides_Template<br>
+├─ .git<br>
+├─ LICENSE<br>
+├─ README.md<br>
+├─ bibliography.bib<br>
+├─ main.pdf<br>
+├─ main.tex<br>
+├─ src<br>
+│    ├─ final_page_bg.png<br>
+│    ├─ logo_name_blue.png<br>
+│    ├─ logo_white.png<br>
+│    └─ title_bg.png<br>
+└─ swjtu.sty<br>
 
 ## 使用说明
-> 关于\LaTeX的使用方法请参考[这里](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
+> 关于LaTeX的使用方法请参考[这里](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
 
 请按照XeLaTeX->biber->XeLaTeX->XeLaTeX的顺序对main.tex进行编译。
 
